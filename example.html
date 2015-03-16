@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>getElementByXPath example</title>
+
+<script src="getElementsByXPath.js"></script>
+</head>
+<body>
+<div id="test">text</div>
+
+<br>
+<table style = "border: 1px solid red;">
+        <tr>
+                <td>1</td>
+                <td>2</td>
+        </tr>
+        <tr>
+                <td>3</td>
+                <td>4</td>
+        </tr>
+</table>
+<br>
+<div id="second"><button onclick="edited();">clck</button></div>
+<div id="thrd">thrd</div>
+<script>
+var arr = document.getElementsByXPath("//td");
+for(var i = 0; i<arr.length; i++)
+{
+        arr[i].innerHTML = "edited";
+}
+
+function edited()
+{
+var req = new XMLHttpRequest();  
+  
+req.open("GET", "xml.xml", false);   
+req.send(null);  
+  
+var xmlDoc = req.responseXML; 
+alert(document.getElementsByXPath("//parent", xmlDoc));
+alert(document.getElementByXPath("//div[@id='thrd']").innerHTML);
+}
+
+</script>
+</body>
+</html>
